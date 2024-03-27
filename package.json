@@ -1,0 +1,32 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "this is learning react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/PinkyRajeshGupta/namasteReact.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "pinky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PinkyRajeshGupta/namasteReact/issues"
+  },
+  "homepage": "https://github.com/PinkyRajeshGupta/namasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist":[
+    "last 2 Chrome Version"
+  ]
+}
