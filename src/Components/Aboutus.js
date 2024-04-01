@@ -1,8 +1,10 @@
+import UserClass from "./User";
+
 const About = () => {
   return (
     <div>
-      <h1>About</h1>
-      <h2>This is About component</h2>
+      <h1>Aboutus</h1>
+      <UserClass name={"Pinky Gupta"} />
     </div>
   );
 };

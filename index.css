@@ -19,6 +19,7 @@
   padding: 10px;
   margin: 10px;
   font-size: 24px;
+  color: black !important;
 }
 /* .body {
 } */
@@ -78,4 +79,43 @@
   width: 60px;
   background-color: cadetblue;
   color: aquamarine;
+}
+.product-image-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.product-image-list > li > img {
+  width: 350px;
+  height: 250;
+}
+
+.prod-img {
+  display: none;
+}
+.prod-img.active {
+  display: block;
+}
+.dot-div {
+  display: flex;
+  margin: 2px;
+  justify-content: center;
+}
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(199, 189, 189);
+  margin: 2px;
+}
+.dot.active {
+  background-color: rgb(43, 34, 34);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.user-card {
+  padding: 2px;
 }

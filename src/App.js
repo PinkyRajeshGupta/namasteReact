@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import Header from "./Components/header";
 import Body from "./Components/Body";
 import About from "./Components/Aboutus";
+import Cart from "./Components/Cart.js";
+import ProductDetail from "./Components/ProductDetail.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contactus from "./Components/Contactus";
 import Error from "./Components/Error.js";
@@ -28,6 +30,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contactus />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/product/:resId",
+        element: <ProductDetail />,
       },
     ],
     errorElement: <Error />,

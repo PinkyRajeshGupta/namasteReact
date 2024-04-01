@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./ProductCard";
 import { API_URL } from "../utils/constant";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [product, setProduct] = useState([]);
@@ -13,7 +14,7 @@ const Body = () => {
     const data = await response.json();
     setProduct(data?.products);
     setfilterproduct(data?.products);
-    // console.log(data.products);
+    console.log(data.products);
   };
 
   useEffect(() => {
@@ -62,14 +63,16 @@ const Body = () => {
       </div>
       <div className="card-container">
         {filterproduct.map((product, index) => (
-          <RestaurantCard
-            key={product.id}
-            resName={product.brand}
-            cuisine="fried rice,Pizza,Buger"
-            cardimage={product.thumbnail}
-            rating={product.rating}
-            price={product.price}
-          />
+          <Link key={product?.id} to={`/product/${product.id}`}>
+            <RestaurantCard
+              // key={product?.id}
+              resName={product?.brand}
+              title={product?.category + " :" + product.title}
+              cardimage={product?.thumbnail}
+              rating={product?.rating}
+              price={product?.price}
+            />
+          </Link>
         ))}
       </div>
     </div>
