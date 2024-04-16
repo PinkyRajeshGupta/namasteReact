@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -21,8 +21,7 @@
   font-size: 24px;
   color: black !important;
 }
-/* .body {
-} */
+
 .res-card {
   width: 200px;
   height: 300px;
@@ -63,7 +62,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 2px;
-  /* justify-content: space-between; */
+ 
 }
 .shimmer-cards {
   width: 200px;
@@ -118,4 +117,42 @@ a:link {
 
 .user-card {
   padding: 2px;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.product-image-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+.product-image-list > li > img {
+  width: 350px;
+  height: 250;
+}
+
+.prod-img {
+  display: none;
+}
+.prod-img.active {
+  display: block;
+}
+.dot-div {
+  display: flex;
+  margin: 2px;
+  justify-content: center;
+}
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(199, 189, 189);
+  margin: 2px;
+}
+.dot.active {
+  background-color: rgb(43, 34, 34);
+}
+
+a:link {
+  text-decoration: none;
 }

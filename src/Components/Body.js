@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./ProductCard";
+import ProductCard, { withPromotedlabel } from "./ProductCard";
 import { API_URL } from "../utils/constant";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,13 +8,15 @@ const Body = () => {
   const [product, setProduct] = useState([]);
   const [filterproduct, setfilterproduct] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const Promotedrescard = withPromotedlabel(ProductCard);
 
   const searchProduct = async () => {
+    debugger;
     const response = await fetch(API_URL);
     const data = await response.json();
     setProduct(data?.products);
     setfilterproduct(data?.products);
-    console.log(data.products);
+    // console.log(data.products);
   };
 
   useEffect(() => {
@@ -26,21 +28,22 @@ const Body = () => {
   //   return <Shimmer />;
   // }
 
-  return product.length === 0 ? (
+  return filterproduct.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className=" search">
+      <div className="flex">
+        <div className="m-5 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border-2 "
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="border-1 bg-slate-400 rounded"
             onClick={() => {
               filteredlist = product.filter((res) =>
                 res.brand.toLowerCase().includes(searchText.toLowerCase())
@@ -52,7 +55,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="border-1 bg-slate-400 rounded m-5 p-4 h-2px"
           onClick={() => {
             const filteredlist = product.filter((res) => res.rating > 4.5);
             filterproduct(filteredlist);
@@ -61,17 +64,27 @@ const Body = () => {
           Top rated Restaurants
         </button>
       </div>
-      <div className="card-container">
+      <div className="flex flex-row flex-wrap">
         {filterproduct.map((product, index) => (
           <Link key={product?.id} to={`/product/${product.id}`}>
-            <RestaurantCard
-              // key={product?.id}
-              resName={product?.brand}
-              title={product?.category + " :" + product.title}
-              cardimage={product?.thumbnail}
-              rating={product?.rating}
-              price={product?.price}
-            />
+            {product.rating > 4 ? (
+              <Promotedrescard
+                resname={product?.brand}
+                title={product?.category + " :" + product.title}
+                cardimage={product?.thumbnail}
+                rating={product?.rating}
+                price={product?.price}
+              />
+            ) : (
+              <ProductCard
+                // key={product?.id}
+                resname={product?.brand}
+                title={product?.category + " :" + product.title}
+                cardimage={product?.thumbnail}
+                rating={product?.rating}
+                price={product?.price}
+              />
+            )}
           </Link>
         ))}
       </div>

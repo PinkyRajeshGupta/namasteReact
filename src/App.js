@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./Components/header";
+import Header from "./Components/Header.js";
 import Body from "./Components/Body";
 import About from "./Components/Aboutus";
 import Cart from "./Components/Cart.js";
@@ -8,6 +8,8 @@ import ProductDetail from "./Components/ProductDetail.js";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contactus from "./Components/Contactus";
 import Error from "./Components/Error.js";
+
+const Grocery = lazy(() => import("./Components/Grocery.js"));
 const AppLayout = () => {
   return (
     <div className="app">
@@ -38,6 +40,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/product/:resId",
         element: <ProductDetail />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <Error />,
