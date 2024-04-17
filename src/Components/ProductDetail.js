@@ -63,6 +63,7 @@ const ProductDetail = () => {
             key={index}
             showItems={index === showIndex ? true : false}
             setshowIndex={() => setshowIndex(index)}
+            index={index}
           />
         ))}
       </div>

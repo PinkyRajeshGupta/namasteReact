@@ -21,3 +21,8 @@ error handaling
 https
 tree shaking
 difference built for dev and produc
+
+#Redux Toolkit
+
+npm install @reduxjs/toolkit
+npm install react-redux

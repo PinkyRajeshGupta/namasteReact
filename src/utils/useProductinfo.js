@@ -9,7 +9,7 @@ const useProductinfo = (resId) => {
   const fetchData = async () => {
     const data = await fetch(API_URL + "/" + resId);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setproductinfo(json);
   };
   return productInfo;

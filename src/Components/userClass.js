@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/userContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -13,14 +14,14 @@ class UserClass extends React.Component {
     };
   }
   async componentDidMount() {
-    console.log("component did mount");
+    // console.log("component did mount");
     const data = await fetch("https://api.github.com/users/pinky");
     const datajson = await data.json();
     this.setState({
       userinfo: datajson,
     });
     this.timer = setInterval(() => {
-      console.log("mounted    .....");
+      // console.log("mounted    .....");
     }, 2100);
   }
   async componentDidUpdate(preprops, prevstate) {}
@@ -35,6 +36,9 @@ class UserClass extends React.Component {
     return (
       <div className="user-card">
         <h1>count:{this.state.count}</h1>
+        <UserContext.Consumer>
+          {/* {(data) => console.log(data)} */}
+        </UserContext.Consumer>
         <button
           onClick={() => {
             this.setState({
